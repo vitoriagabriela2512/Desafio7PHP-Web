@@ -1,29 +1,29 @@
-<?php require_once(__DIR__ . "/Hotel.php"); ?>
+<?php require_once(__DIR__ . "/Geo.php"); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Reserva de Hotel</title>
+    <title>Calculadora Geométrica</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <h2>Reserva de Hotel</h2>
+    <h2>Calculadora Geométrica</h2>
 
     <form method="post">
 
-        <input type="text" name="nome" placeholder="Nome do hóspede" required>
-
-        <input type="number" name="noites" placeholder="Número de noites" required>
-
-        <select name="quarto">
-            <option value="simples">Quarto Simples (R$120)</option>
-            <option value="luxo">Quarto Luxo (R$200)</option>
-            <option value="suite">Suíte (R$350)</option>
+        <select name="figura" id="figura" onchange="alterarCampos()">
+            <option value="quadrado">Quadrado</option>
+            <option value="retangulo">Retângulo</option>
+            <option value="circulo">Círculo</option>
         </select>
 
-        <button type="submit">Reservar</button>
+        <input type="number" step="0.1" name="valor1" id="valor1" placeholder="Lado" required>
+
+        <input type="number" step="0.1" name="valor2" id="valor2" placeholder="Altura">
+
+        <button type="submit">Calcular</button>
 
     </form>
 </div>
@@ -32,17 +32,41 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $reserva = new Hotel(
-        $_POST['nome'],
-        (int)$_POST['noites'],
-        $_POST['quarto']
+    $geo = new Geo(
+        $_POST['figura'],
+        (float)$_POST['valor1'],
+        isset($_POST['valor2']) ? (float)$_POST['valor2'] : 0
     );
 
-    echo "<h3>Resumo da Reserva:</h3>";
-    echo $reserva->exibir();
+    echo "<h3>Resultado:</h3>";
+    echo $geo->exibir();
 }
 ?>
 </div>
+
+<script>
+function alterarCampos() {
+    const figura = document.getElementById("figura").value;
+    const v1 = document.getElementById("valor1");
+    const v2 = document.getElementById("valor2");
+
+    if (figura === "quadrado") {
+        v1.placeholder = "Lado";
+        v2.style.display = "none";
+    } 
+    else if (figura === "retangulo") {
+        v1.placeholder = "Base";
+        v2.placeholder = "Altura";
+        v2.style.display = "block";
+    } 
+    else if (figura === "circulo") {
+        v1.placeholder = "Raio";
+        v2.style.display = "none";
+    }
+}
+
+alterarCampos();
+</script>
 
 </body>
 </html>
