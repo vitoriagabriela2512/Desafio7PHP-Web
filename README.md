@@ -25,36 +25,6 @@ O objetivo é aplicar conceitos fundamentais de POO de forma prática e progress
 - Organização em arquivos
 - Interação com formulários (POST)
 
----
-
-## 📂 Estrutura do Projeto
-
-
-/
-├── 
-├── exercicio02/
-├── exercicio03/
-├── exercicio04/
-├── exercicio05/
-├── exercicio06/
-├── exercicio07/
-├── exercicio08/
-├── exercicio09/
-├── exercicio10/
-├── exercicio11/
-└── indexGeral.php
-├── exercicio01/
-├── exercicio02/
-├── exercicio03/
-├── exercicio04/
-├── exercicio05/
-├── exercicio06/
-├── exercicio07/
-├── exercicio08/
-├── exercicio09/
-├── exercicio10/
-├── exercicio11/
-└── indexGeral.php
 
 Cada pasta contém:
 
