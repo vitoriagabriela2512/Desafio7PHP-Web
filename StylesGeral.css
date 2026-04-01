@@ -1,0 +1,66 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #fefeff, #bcc1c9);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINER MENU */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1000px;
+}
+
+/* CARDS */
+.exercicio {
+    text-decoration: none;
+    background: #111827;
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+    color: #e5e7eb;
+    font-size: 15px;
+    transition: 0.3s;
+    border: 1px solid #1f2937;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* HOVER */
+.exercicio:hover {
+    transform: translateY(-6px) scale(1.03);
+    background: #214ba5;
+    color: white;
+}
+
+/* ANIMAÇÃO */
+.exercicio {
+    animation: aparecer 0.5s ease forwards;
+    opacity: 0;
+}
+
+.exercicio:nth-child(1) { animation-delay: 0.1s; }
+.exercicio:nth-child(2) { animation-delay: 0.2s; }
+.exercicio:nth-child(3) { animation-delay: 0.3s; }
+.exercicio:nth-child(4) { animation-delay: 0.4s; }
+.exercicio:nth-child(5) { animation-delay: 0.5s; }
+.exercicio:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

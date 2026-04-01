@@ -1,72 +1,25 @@
-<?php require_once(__DIR__ . "/Geo.php"); ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Calculadora Geométrica</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="StylesGeral.css">
 </head>
 <body>
+    <div class="menu">
 
-<div class="container">
-    <h2>Calculadora Geométrica</h2>
-
-    <form method="post">
-
-        <select name="figura" id="figura" onchange="alterarCampos()">
-            <option value="quadrado">Quadrado</option>
-            <option value="retangulo">Retângulo</option>
-            <option value="circulo">Círculo</option>
-        </select>
-
-        <input type="number" step="0.1" name="valor1" id="valor1" placeholder="Lado" required>
-
-        <input type="number" step="0.1" name="valor2" id="valor2" placeholder="Altura">
-
-        <button type="submit">Calcular</button>
-
-    </form>
+    <a class="exercicio" href="Exercicio01-POO/index.php">1. Salário Funcionario</a>
+    <a class="exercicio" href="Exercicio02-POO/index.php">2. Cálculo de média e status</a>
+    <a class="exercicio" href="Exercicio03-POO/index.php">3. Total, Desconto e Imposto</a>
+    <a class="exercicio" href="Exercicio04-POO/index.php">4. Autonomia e Revisão</a>
+    <a class="exercicio" href="Exercicio05-POO/index.php">5. Controle de Estoque</a>
+    <a class="exercicio" href="Exercicio06-POO/index.php">6. Conversão Real x Dólar/Euror</a>
+    <a class="exercicio" href="Exercicio07-POO/index.php">7. Planejamento e Custos</a>
+    <a class="exercicio" href="Exercicio08-POO/index.php">8. Parcelamento e Juros</a>
+    <a class="exercicio" href="Exercicio09-POO/index.php">9. IMC e Classificação</a>
+    <a class="exercicio" href="Exercicio10-POO/index.php">10. Simulação de diária</a>
+    <a class="exercicio" href="Exercicio11-POO/index.php">11. Área de figuras</a>  
 </div>
-
-<div class="resultado">
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $geo = new Geo(
-        $_POST['figura'],
-        (float)$_POST['valor1'],
-        isset($_POST['valor2']) ? (float)$_POST['valor2'] : 0
-    );
-
-    echo "<h3>Resultado:</h3>";
-    echo $geo->exibir();
-}
-?>
-</div>
-
-<script>
-function alterarCampos() {
-    const figura = document.getElementById("figura").value;
-    const v1 = document.getElementById("valor1");
-    const v2 = document.getElementById("valor2");
-
-    if (figura === "quadrado") {
-        v1.placeholder = "Lado";
-        v2.style.display = "none";
-    } 
-    else if (figura === "retangulo") {
-        v1.placeholder = "Base";
-        v2.placeholder = "Altura";
-        v2.style.display = "block";
-    } 
-    else if (figura === "circulo") {
-        v1.placeholder = "Raio";
-        v2.style.display = "none";
-    }
-}
-
-alterarCampos();
-</script>
-
 </body>
 </html>
